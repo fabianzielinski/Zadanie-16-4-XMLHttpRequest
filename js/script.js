@@ -7,11 +7,10 @@ function getJoke() {
   xhr.open('GET', url);
   xhr.addEventListener('load', function(){
     var response = JSON.parse(xhr.response);
-    paragraph.innerHTML = response.value.joke;
+    paragraph.innerHTML = response.value.joke || "No data available";
   });
   xhr.send();
 }
-
 
 var button = document.getElementById('get-joke');
 button.addEventListener('click', function(){
